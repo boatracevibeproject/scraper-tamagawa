@@ -23,7 +23,7 @@
     },
     "require": {
         "php": "^8.2",
-        "bvp/scraper-core": "^4.0",
+        "bvp/scraper-core": "^5.0",
         "nesbot/carbon": "^2.63 || ^3.0"
     },
     "require-dev": {
@@ -38,5 +38,7 @@
         "psr-4": {
             "BVP\\TamagawaScraper\\Tests\\": "tests/"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
