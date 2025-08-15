@@ -7,7 +7,7 @@
 [![unstable](https://poser.pugx.org/bvp/tamagawa-scraper/v/unstable)](https://packagist.org/packages/bvp/tamagawa-scraper)
 [![license](https://poser.pugx.org/bvp/tamagawa-scraper/license)](https://packagist.org/packages/bvp/tamagawa-scraper)
 
-BVP Tamagawa Scraper は、ボートレース多摩川の公式サイトから選手コメント、記者予想、オリジナル展示タイムをスクレイピングして取得できる PHP ライブラリです。
+BVP Tamagawa Scraper は、ボートレース多摩川の公式サイトから記者予想、オリジナル展示タイムをスクレイピングして取得できる PHP ライブラリです。
 
 ## 📦 Requirements
 - PHP ^8.2
