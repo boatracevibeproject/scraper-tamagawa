@@ -2,67 +2,29 @@
 
 declare(strict_types=1);
 
-namespace BVP\TamagawaScraper;
+namespace BVP\Scraper\Tamagawa;
+
+use BadMethodCallException;
+use Turnmark\Scraper\Tamagawa\Scraper as ScraperTamagawa;
 
 /**
  * @author shimomo
  */
-class Scraper implements ScraperInterface
+final class Scraper
 {
     /**
-     * @var \BVP\TamagawaScraper\ScraperInterface
-     */
-    private static ?ScraperInterface $instance;
-
-    /**
-     * @param  \BVP\TamagawaScraper\ScraperCoreInterface  $scraper
-     * @return void
-     */
-    public function __construct(private readonly ScraperCoreInterface $scraper) {}
-
-    /**
-     * @param  string  $name
-     * @param  array   $arguments
-     * @return array
-     */
-    public function __call(string $name, array $arguments): array
-    {
-        return $this->scraper->$name(...$arguments);
-    }
-
-    /**
-     * @param  string  $name
-     * @param  array   $arguments
-     * @return array
+     * @param non-empty-string $name
+     * @param list<mixed> $arguments
+     * @return array<non-empty-string, mixed>|array<int<1, 12>, array<non-empty-string, mixed>>
      */
     public static function __callStatic(string $name, array $arguments): array
     {
-        return self::getInstance()->$name(...$arguments);
-    }
+        if (!method_exists(ScraperTamagawa::class, $name)) {
+            throw new BadMethodCallException(
+                sprintf('Undefined method %s::%s()', self::class, $name),
+            );
+        }
 
-    /**
-     * @param  \BVP\TamagawaScraper\ScraperCoreInterface
-     * @return \BVP\TamagawaScraper\ScraperInterface
-     */
-    public static function getInstance(?ScraperCoreInterface $scraperCore = null): ScraperInterface
-    {
-        return self::$instance ??= new self($scraperCore ?? new ScraperCore());
-    }
-
-    /**
-     * @param  \BVP\TamagawaScraper\ScraperCoreInterface
-     * @return \BVP\TamagawaScraper\ScraperInterface
-     */
-    public static function createInstance(?ScraperCoreInterface $scraperCore = null): ScraperInterface
-    {
-        return self::$instance = new self($scraperCore ?? new ScraperCore());
-    }
-
-    /**
-     * @return void
-     */
-    public static function resetInstance(): void
-    {
-        self::$instance = null;
+        return forward_static_call([ScraperTamagawa::class, $name], ...$arguments);
     }
 }
