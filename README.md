@@ -1,10 +1,8 @@
 # BVP Scraper Tamagawa
 
-[![license](https://poser.pugx.org/bvp/scraper-tamagawa/license)](https://packagist.org/packages/bvp/scraper-tamagawa)
-
 [![php](https://poser.pugx.org/bvp/scraper-tamagawa/require/php)](https://packagist.org/packages/bvp/scraper-tamagawa)
 [![stable](https://poser.pugx.org/bvp/scraper-tamagawa/v/stable)](https://packagist.org/packages/bvp/scraper-tamagawa)
-[![unstable](https://poser.pugx.org/bvp/scraper-tamagawa/v/unstable)](https://packagist.org/packages/bvp/scraper-tamagawa)
+[![license](https://poser.pugx.org/bvp/scraper-tamagawa/license)](https://packagist.org/packages/bvp/scraper-tamagawa)
 
 ## 💾 Installation
 
